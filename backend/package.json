@@ -1,0 +1,16 @@
+{
+  "name": "birthday-app-backend",
+  "version": "1.0.0",
+  "description": "Romantic Birthday Web App Backend",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3"
+  }
+}
