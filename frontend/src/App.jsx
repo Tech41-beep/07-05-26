@@ -10,6 +10,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [audioEnabled, setAudioEnabled] = useState(false)
   const [messageContext, setMessageContext] = useState('home')
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     // Play background music from YouTube song
@@ -36,17 +37,29 @@ function App() {
   const handleSectionChange = (section) => {
     setActiveSection(section)
     setMessageContext(section)
+    setMenuOpen(false)
   }
 
   return (
-    <div>
+    <div className="app-shell">
       {/* Navigation */}
-      <nav>
-        <ul>
+      <nav className="site-nav">
+        <div className="nav-bar">
+          <button
+            className="nav-menu-button"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-expanded={menuOpen}
+            aria-label="Toggle navigation menu"
+            type="button"
+          >
+            ☰
+          </button>
+        </div>
+        <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
           <li>
             <button
               className={activeSection === 'home' ? 'active' : ''}
-                onClick={() => handleSectionChange('home')}
+              onClick={() => handleSectionChange('home')}
             >
                Home
             </button>
@@ -54,7 +67,7 @@ function App() {
           <li>
             <button
               className={activeSection === 'memories' ? 'active' : ''}
-                onClick={() => handleSectionChange('memories')}
+              onClick={() => handleSectionChange('memories')}
             >
                Memories
             </button>
@@ -62,7 +75,7 @@ function App() {
           <li>
             <button
               className={activeSection === 'message' ? 'active' : ''}
-                onClick={() => handleSectionChange('message')}
+              onClick={() => handleSectionChange('message')}
             >
                Message
             </button>
@@ -70,7 +83,7 @@ function App() {
           <li>
             <button
               className={activeSection === 'surprise' ? 'active' : ''}
-                onClick={() => handleSectionChange('surprise')}
+              onClick={() => handleSectionChange('surprise')}
             >
                Surprise
             </button>

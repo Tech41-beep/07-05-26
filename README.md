@@ -88,6 +88,30 @@ npm run dev
 
 The frontend will open automatically at `http://localhost:3000`
 
+## 🚀 Deploy to Vercel
+
+This project is set up so the Vite frontend and the API routes can be deployed from the `frontend` folder.
+
+### Recommended Vercel settings
+- **Root Directory**: `frontend`
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+
+### What gets deployed
+- The React app from `frontend/src`
+- The photo assets from `frontend/src/img`
+- The API routes from `frontend/api` for `/api/memories`, `/api/messages`, `/api/surprise`, and `/api/health`
+
+### Steps
+1. Push the repository to GitHub.
+2. Import the repo into Vercel.
+3. Set the root directory to `frontend`.
+4. Deploy.
+
+### Notes
+- The app uses client-side section switching, so it works well as a Vercel static frontend.
+- The `/api/*` requests are handled by Vercel serverless functions in `frontend/api`.
+
 ### 5. Access the App
 
 - Open your browser to `http://localhost:3000`
